@@ -1,14 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'sign_up_bloc.dart';
 
-abstract class SignUpEvent extends Equatable {
+sealed class SignUpEvent extends Equatable {
   const SignUpEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class SignUpTextChangedEvent extends SignUpEvent {
+final class SignUpTextChangedEvent extends SignUpEvent {
   final String nameInput;
   final String emailInput;
   final String passwordInput;
@@ -34,15 +34,15 @@ class SignUpTextChangedEvent extends SignUpEvent {
       'SignUpTextChangedEvent(nameInput: $nameInput, emailInput: $emailInput, passwordInput: $passwordInput, confirmPasswordInput: $confirmPasswordInput)';
 }
 
-class SignUpObscurePasswordToggleEvent extends SignUpEvent {
+final class SignUpObscurePasswordToggleEvent extends SignUpEvent {
   const SignUpObscurePasswordToggleEvent();
 }
 
-class SignUpConfirmObscurePasswordToggleEvent extends SignUpEvent {
+final class SignUpConfirmObscurePasswordToggleEvent extends SignUpEvent {
   const SignUpConfirmObscurePasswordToggleEvent();
 }
 
-class SignUpSubmittedEvent extends SignUpEvent {
+final class SignUpSubmittedEvent extends SignUpEvent {
   final String name;
   final String email;
   final String password;
